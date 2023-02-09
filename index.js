@@ -9,22 +9,16 @@ io.on("connection", (socket) => {
         console.log(socket.id + " desconectou");
     })
 
-    socket.on("Boasvindas", (data) => {
-        console.log("EXECUTANDO EVENTO DE BOAS VINDAS")
-        console.log(data)
+    socket.on("msg", (data) => {
+        socket.emit("showmsg", data)
     })
-
-    socket.on("palavra", (data) => {
-        console.log(data)
-        socket.emit("resultado", data + " - Guia do Programador")
-    })
-
+    
 })
 
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index.ejs");
 })
 
 http.listen(3000, () => {
