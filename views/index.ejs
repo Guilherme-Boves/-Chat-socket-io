@@ -5,16 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Chat - Socket.io</h1>
-    <div id="chat">
-    
-    </div>
-    <input type="text" id="username" placeholder="Seu nome de Usuário"><br><br>
-    <input type="text" id="msg" placeholder="Mensagem"><br><br>
-    <button onclick="enviar()">Enviar</button>
+<style>
+    #chat{
+        max-height: 500px;
+        min-height: 500px;
+        background-color: rgb(217, 217, 217);
+        overflow-y: scroll;
+        border-radius: 2rem 1rem 1rem 2rem;
+        padding: 2rem
+    }
+    #chat::-webkit-scrollbar {
+        width: 12px;               /* width of the entire scrollbar */
+    }
 
+    #chat::-webkit-scrollbar-track {
+        background: gray;        /* color of the tracking area */
+        border-radius: 0 2rem 2rem 0;
+    }
+
+    #chat::-webkit-scrollbar-thumb {
+        background-color: rgb(178, 178, 181);    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 3px solid gray;  /* creates padding around scroll thumb */
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Chat - Socket.io</h1>
+        <div id="chat">
+        
+        </div><br><br>
+        <input class="form-control" type="text" id="username" placeholder="Seu nome de Usuário"><br>
+        <input class="form-control" type="text" id="msg" placeholder="Mensagem"><br>
+        <button class="btn btn-success btn-lg btn-block" onclick="enviar()">Enviar</button>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.js"></script>
 <script>
